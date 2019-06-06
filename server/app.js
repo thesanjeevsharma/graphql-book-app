@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // DB connection
-mongoose.connect('mongodb+srv://admin:oiYmsrOZQsSwWG3g@stayyy-cluster-t76dg.mongodb.net/gql-book-app?retryWrites=true&w=majority')
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@stayyy-cluster-t76dg.mongodb.net/gql-book-app?retryWrites=true&w=majority`)
         .then(() => {
             console.log("*Connected to MongoDB Atlas.");
         })

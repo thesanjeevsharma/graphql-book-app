@@ -1,22 +1,8 @@
 const graphql = require('graphql');
 const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt, GraphQLList } = graphql;
 const _ = require('lodash');
-
-// dummy data
-let books = [
-    { id: '1', name: 'Book 1', genre: 'Fantasy', authorId: '1' },
-    { id: '2', name: 'Book 2', genre: 'Fantasy', authorId: '2' },
-    { id: '3', name: 'Book 3', genre: 'Crime', authorId: '3' },
-    { id: '4', name: 'Book 4', genre: 'Romance', authorId: '2' },
-    { id: '5', name: 'Book 5', genre: 'Thriller', authorId: '3' },
-    { id: '6', name: 'Book 6', genre: 'Crime', authorId: '3' }
-]
-
-let authors = [
-    { id: '1', name: 'Sanjeev', age: 21 },
-    { id: '2', name: 'Mansi', age: 23 },
-    { id: '3', name: 'Vishakha', age: 22 }
-]
+const Book = require('../models/book.model');
+const Author = require('../models/author.model');
 
 const BookType = new GraphQLObjectType({
     name: 'Book',

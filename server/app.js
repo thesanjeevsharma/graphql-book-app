@@ -2,8 +2,18 @@ require('dotenv').config();
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const schema = require('./schema/schema');
+const mongoose = require('mongoose');
 
 const app = express();
+
+// DB connection
+mongoose.connect('mongodb+srv://admin:oiYmsrOZQsSwWG3g@stayyy-cluster-t76dg.mongodb.net/gql-book-app?retryWrites=true&w=majority')
+        .then(() => {
+            console.log("*Connected to MongoDB Atlas.");
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 
 // Middlewares
 app.use('/graphql', graphqlHTTP({
